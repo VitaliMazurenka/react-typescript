@@ -1,5 +1,12 @@
-.how20-wrapper {
+.hw-wrapper {
     display: flex;
     flex-direction: column;
     width: 100%;
+    gap: 5px;
+    margin: 10px;
+  }
+  .company-personal{
+    font-size: 20px;
+    color: blue;
+    
   }
