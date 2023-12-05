@@ -1,108 +1,106 @@
 import { useState } from "react";
 
+import Counter from "../../components/Counter";
+
 import "./styles.css";
 
-import Counter from "../../components/Counter";
-function Lesson21(){
+function Lesson21() {
+  // Создаем useState для управления состоянием счетчика
+  const [count, setCount] = useState<number>(0);
 
-    // создаем useState для управления состоянием счетчика
-    // передаем стейт в useState  как generic  - тип <number>! 
+  // Создаем функцию onPlus
+  const onPlus = (): void => {
+    setCount((prevValue: number) => prevValue + 1);
+  };
 
-    const [count, setCount] = useState <number>(0);
+  // Создаем функцию onMinus
+  const onMinus = (): void => {
+    setCount((prevValue: number) => prevValue - 1);
+  };
 
-    // создаем функцию onPLus 
+  // 1. null и undefined
+  let emptyContainer: null = null;
+  let undefContainer: undefined = undefined;
 
-    const onPlus = ():void =>{
-        setCount((prevValue:number)=>prevValue+1);
-    };
+  // 2. тип tupel - позволяет нам зранить массив фиксированной длинны с разными типа данных в нем
+  let tupelArray: [string, number, string] = ["Tiger", 3, "Lion"];
 
-    // Создаем функцию onMinus
+  // 3. тип void - когда функия у нас ничего не возвращает, просто что-то выполняет
+  function helloWorld(): void {
+    console.log("hello world");
+  }
 
-    const onMinus = ():void =>{
-        setCount((prevValue:number)=>prevValue-1);
-    };
+  const sayHi = (): void => {
+    console.log("Hi");
+  };
 
-    // null и undefined
+  // 4. типизация ф-ий которые что-то возвращают + типизация аргументов - обязательно
+  //   const sum: (a: number, b: number) => number = (a: number, b: number) => {
+  //     return a + b;
+  //   };
 
-    let emptyContainer: null = null;
-    let underContainer: undefined = undefined;
+  const sum = (a: number, b: number): number => {
+    return a + b;
+  };
 
-    // тип tupel  - позволяет хранить массив  фиксированной длины с разными типами данных в нем
-    
-    let tupelArray: [string, number, string] = ['Tiger', 3, 'Lion'];
+  // 5. Тип any - когда типизация не строгая и мы не знаем что-там может лежать
+  let anyType: any = 3;
 
-    // тип void  - когда функция ничего не возвращает, просто что то выполняет 
+  anyType = "3";
+  anyType = () => console.log("Any function");
 
-    function helloWorld(): void{
-        console.log('Hello World!');
-    };
+  // 6. enum - тип переисляемых констант
 
-    const sayHi = (): void =>{
-        console.log('Hi!');
+  enum SEASONS {
+    WINTER = "Winter",
+    SPRING = "Spring",
+    SUMMER = "Summer",
+    AUTUMN = "Autumn",
+    QWE = 3,
+  }
 
-    };
-    // типизация функций которая что то возвращает 
-    // const sum  = (a:number,b:number) : number =>{
-    //     return a+b;
-    // }
+  let spring = SEASONS.SPRING;
 
-    // Тип any - когда типизация не строгая и мы не знаем что там может лежать
+  // Сравнение 2 строк и их символов
+  console.log(SEASONS.SUMMER === "Summer");
+  console.log(spring);
 
-    let anyType: any = 3;
-    anyType = "3";
-    anyType=()=>console.log('Any function');
+  // 7. Типизация обьектов
 
-    // Тип enum - перечисляемые константы
+  interface Persons {
+    pets: string[];
+  }
 
-    enum SEASONS {
-        WINTER = 'Winter',
-        SPRING = 'Spring',
-        SUMMER = 'Summer',
-        AUTUMN = 'Autumn',
-    };
-    let spring: SEASONS = SEASONS.SPRING;
-    
-    // Сравнение 2 строк 
-    console.log(SEASONS.SUMMER === "Summer");
-    console.log(spring);
+  interface Persons2 {
+    someInfo?: string;
+  }
 
-    // Типизация обьектов 
+  interface Person extends Persons, Persons2 {
+    name: string;
+    lastName: string;
+    age: number;
+    hairColor: string;
+    // ? - обозначает что свойство не обязательное
+    isMarried?: boolean;
+  }
 
-    interface Persons {
-        pets: string[];
-    }
+  const person: Person = {
+    name: "Josh",
+    lastName: "Smith",
+    age: 35,
+    hairColor: "Black",
+    pets: ["Tiger"],
+  };
 
-    interface Person2{
-        someInfo?:string;
-    }
+  // 8. Несколько типов одной переменной
+  let some: string | undefined = undefined;
 
+  some = "Hello";
 
-    interface Person extends Persons, Person2 {
-        name: string;
-        lastName: string;
-        age: number;
-        hairColor: string;
-        // ? - означает что свойство не обязательное
-        isMarried?: boolean;
-    };
-
-    const person: Person ={
-        name: 'George',
-        lastName: 'Smith',
-        age: 35,
-        hairColor: "Black",
-        pets:["Tiger"],
-    };
-
-        // Несколько типов одной переменной 
-
-        let some: string | undefined = undefined;
-
-        some  = "Hello";
   return (
-  <div className="lesson21-wrapper">
-        <Counter count = {count} onPlus = {onPlus} onMinus = {onMinus}/>
-  </div>
+    <div className="lesson21-wrapper">
+      <Counter count={count} onPlus={onPlus} onMinus={onMinus} />
+    </div>
   );
 }
 

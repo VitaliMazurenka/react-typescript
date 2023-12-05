@@ -1,18 +1,22 @@
 import "./styles.css";
 
 interface CounterProps {
-    count: number;
-    onPlus:()=> void;
-    onMinus:()=>void;
+  count: number;
+  onPlus: () => void;
+  onMinus: () => void;
 }
 
-function Counter({count, onPlus, onMinus}:CounterProps) {
+function Counter({ count, onPlus, onMinus }: CounterProps) {
   return (
-  <div className="counter-wrapper">
-    <button className="counter-button"  onClick = {onMinus}>-</button>
-    <p className="count">{count}</p>
-    <button className="counter-button" onClick={onPlus}>+</button>
-  </div>
+    <div className="counter-wrapper">
+      <button className="counter-button" onClick={onMinus}>
+        -
+      </button>
+      <p className="count">{count}</p>
+      <button className="counter-button" onClick={onPlus}>
+        +
+      </button>
+    </div>
   );
 }
 
