@@ -57,7 +57,7 @@ function Lesson22() {
 
   const paragraphStyles: CSSProperties = {
     fontSize: "20px",
-    color: isRed ? "rgb(255, 0, 0)" : "blue",
+    color: isRed ? "rgb(255,0,0)" : "blue",
   };
 
   return (
