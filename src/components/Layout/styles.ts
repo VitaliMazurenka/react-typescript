@@ -1,6 +1,5 @@
-import {Link, NavLink} from'react-router-dom'
-
 import styled from "styled-components";
+import { Link, NavLink } from "react-router-dom";
 
 import { colors } from "styles/colors";
 
@@ -23,17 +22,36 @@ export const Header = styled.header`
   color: ${colors.white};
 `;
 
-export const NavContainer = styled.nav`
-display: flex;
-gap: 20px;
-align-items: center;
-font-size: 20px;
-color: ${colors.white};
+export const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 `;
 
-export const StyledLink = styled(NavLink)`
-font-size: 20px;
-color: ${colors.white};
+export const NavContainer = styled.nav`
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 20px;
+  color: ${colors.white};
+`;
+
+export const NavContainerCol = styled.nav`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+`;
+
+export const StyledNavLink = styled(NavLink)`
+  font-size: 20px;
+  color: ${colors.white};
+`;
+
+export const StyledLink = styled(Link)`
+  color: white;
+  font-size: 16px;
 `;
 
 export const Main = styled.main`
@@ -47,7 +65,7 @@ export const Main = styled.main`
 export const Footer = styled.footer`
   display: flex;
   width: 100%;
-  height: 100px;
+  height: 150px;
   padding: 20px;
   background-color: ${colors.primary};
   color: ${colors.white};

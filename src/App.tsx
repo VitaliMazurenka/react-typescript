@@ -6,7 +6,7 @@ import Home from "pages/Home";
 import Users from "pages/Users";
 import About from "pages/About";
 import Clients from "pages/Clients";
-import Logo from "components/Logo";
+import {Apple, Facebook, Sega} from 'pages/Clients/modules';
 
 // Lessons
 // import Lesson20 from "./lessons/Lesson20";
@@ -33,11 +33,13 @@ function App() {
       <GlobalStyles />
       <Layout>
     <Routes>
-      <Route path="/logo" element={<Home />} />
       <Route path="/" element={<Home />}/>
       <Route path="/users" element={<Users />} />
       <Route path="/about" element={<About />}/>
       <Route path="/clients" element={<Clients />}/>
+      <Route path="/clients/apple" element={<Apple />} />
+      <Route path="/clients/facebook" element={<Facebook />} />
+      <Route path="/clients/sega" element={<Sega />} />
       <Route path = "*" element = "Page Not Found"/>
     </Routes>
         {/* Lessons */}

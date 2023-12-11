@@ -1,27 +1,65 @@
-import {Link} from'react-router-dom'
-import {useLocation} from 'react-router-dom'
-import { LayoutWrapper, Header, Main, Footer, NavContainer, StyledLink} from "./styles";
+import { useLocation, useNavigate } from "react-router-dom";
+
+import {
+  LayoutWrapper,
+  Header,
+  Footer,
+  Main,
+  NavContainer,
+  StyledLink,
+  StyledNavLink,
+  NavContainerCol,
+  LogoContainer,
+} from "./styles";
 import { LayoutProps } from "./types";
-import Button from 'components/Button';
-import { LogoWrapper } from 'components/Logo/styles';
 
 function Layout({ children }: LayoutProps) {
-    const location = useLocation();
-    console.log(location);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  console.log(location);
   return (
-  <LayoutWrapper>
-    <Header>
-    <LogoWrapper>Logo</LogoWrapper>
+    <LayoutWrapper>
+      <Header>
+        <LogoContainer onClick={() => navigate("/")}>Logo</LogoContainer>
         <NavContainer>
-        <StyledLink style={({ isActive }) => ({ color: isActive ? 'blue' : 'white' })} to= "/">Home</StyledLink>
-        <StyledLink style={({ isActive }) => ({ color: isActive ? 'blue' : 'white' })} to= "/users">Users</StyledLink>
-        <StyledLink style={({ isActive }) => ({ color: isActive ? 'blue' : 'white' })} to= "about">About</StyledLink>
-        <StyledLink style={({ isActive }) => ({ color: isActive ? 'blue' : 'white' })} to= "clients">Clients</StyledLink>
+          <StyledNavLink
+            style={({ isActive }) => ({ color: isActive ? "blue" : "white" })}
+            to="/"
+          >
+            Home
+          </StyledNavLink>
+          <StyledNavLink
+            style={({ isActive }) => ({ color: isActive ? "blue" : "white" })}
+            to="/users"
+          >
+            Users
+          </StyledNavLink>
+          <StyledNavLink
+            style={({ isActive }) => ({ color: isActive ? "blue" : "white" })}
+            to="/about"
+          >
+            About
+          </StyledNavLink>
+          <StyledNavLink
+            to={"/clients"}
+            style={({ isActive }) => ({ color: isActive ? "blue" : "white" })}
+          >
+            Clients
+          </StyledNavLink>
         </NavContainer>
-    </Header>
-    <Main>{children}</Main>
-    <Footer>Footer</Footer>
- </LayoutWrapper>)
+      </Header>
+      <Main>{children}</Main>
+      <Footer>
+        <NavContainerCol>
+          <StyledLink to={"/"}>Home</StyledLink>
+          <StyledLink to={"/users"}>Users</StyledLink>
+          <StyledLink to={"/about"}>About</StyledLink>
+          <StyledLink to={"/clients"}>Clients</StyledLink>
+        </NavContainerCol>
+      </Footer>
+    </LayoutWrapper>
+  );
 }
 
 export default Layout;
