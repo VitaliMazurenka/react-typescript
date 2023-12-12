@@ -1,6 +1,11 @@
 import { InputProps } from "./types";
 
-import { InputContainer, InputLabel, InputComponent, ErrorContainer } from "./styles";
+import {
+  InputContainer,
+  InputLabel,
+  InputComponent,
+  ErrorContainer,
+} from "./styles";
 
 function Input({
   disabled,
@@ -10,8 +15,8 @@ function Input({
   value,
   onChange,
   type,
-  error = undefined, // Получаем props error от родительского компонента , и присваиваем ей default 
-  //значение undefined 
+  // Получаею пропсу error от родительского компонента и присваиваю ей default значение undefined
+  error = undefined,
 }: InputProps) {
   const inputId = `${name}-${Math.random()}`;
 
@@ -19,7 +24,7 @@ function Input({
     <InputContainer>
       <InputLabel htmlFor={inputId}>{labelName}</InputLabel>
       <InputComponent
-        $error = {error}
+        $error={error}
         type={type}
         value={value}
         onChange={onChange}

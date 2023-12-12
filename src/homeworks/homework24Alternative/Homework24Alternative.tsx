@@ -4,7 +4,7 @@ import Button from "components/Button";
 
 import { Homework24Wrapper, Text, Card, ContainerJokes } from "./styles";
 
-function Homework24() {
+function Homework24Alternative() {
   // Объявляем 3 стейта jokeQuestion и jokeAnswer - для отображения данных, которые пришли
   // с бэкенда. JokeError для отображения ошибки
   const [jokeQuestion, setJokeQuestion] = useState<string | undefined>(
@@ -12,8 +12,9 @@ function Homework24() {
   );
   const [jokeAnswer, setJokeAnswer] = useState<string | undefined>(undefined);
   const [jokeError, setJokeError] = useState<string | undefined>(undefined);
+  const [isClickedByButton, seIsClickedByButton] = useState<boolean>(false);
 
-  const getJokes = async (isClickedByButton?: boolean) => {
+  const getJokes = async (isClicked?: boolean) => {
     console.log(isClickedByButton);
     // response возвращает обьект Response, который отображает информацию о
     // ответе: status, ok, header и т.д
@@ -32,16 +33,16 @@ function Homework24() {
       setJokeQuestion(data.setup);
       setJokeAnswer(data.punchline);
 
-      if (isClickedByButton) {
-        alert("Вы получили новую шутку");
+      if (isClicked) {
+        seIsClickedByButton(true);
       }
     } else {
       setJokeQuestion(undefined);
       setJokeAnswer(undefined);
       setJokeError("Ошибка при получении данных");
 
-      if (isClickedByButton) {
-        alert("Ошибка при получении данных");
+      if (isClicked) {
+        seIsClickedByButton(true);
       }
     }
   };
@@ -51,6 +52,21 @@ function Homework24() {
   useEffect(() => {
     getJokes();
   }, []);
+
+  //Этот код следит за обновлениями когда нам показывать alert - не лучший подход
+  // В данном примере лучше будет вызывать alert как на уроке в функции getJokes
+  // useEffect(() => {
+  //   console.log("Updation");
+  //   if (isClickedByButton) {
+  //     if (jokeAnswer) {
+  //       alert("Вы получили новую шутку");
+  //     }
+
+  //     if (jokeError) {
+  //       alert("Ошибка при получении данных");
+  //     }
+  //   }
+  // }, [jokeAnswer, jokeError, isClickedByButton]);
 
   return (
     <Homework24Wrapper>
@@ -66,4 +82,4 @@ function Homework24() {
   );
 }
 
-export default Homework24;
+export default Homework24Alternative;

@@ -1,7 +1,7 @@
-import {HomeWrapper} from './styles'
+import {HomeWrpapper} from './styles';
 
-function Home(){
-    return <HomeWrapper>Home</HomeWrapper>
+function Home () {
+    return <HomeWrpapper>Home</HomeWrpapper>
 }
 
 export default Home;
