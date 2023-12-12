@@ -7,13 +7,14 @@ import About from "pages/About";
 import Users from "pages/Users";
 import Clients from "pages/Clients";
 import { Apple, Facebook, Sega } from "pages/Clients/modules";
+import Weather from "pages/Weather";
 // Lessons
 // import Lesson20 from "./lessons/Lesson20";
 // import Lesson21 from "./lessons/Lesson21";
 // import Lesson22 from "./lessons/Lesson22";
 // import Lesson24 from 'lessons/Lesson24';
 // import Lesson25 from "lessons/Lesson25";
-import Lesson27 from "lessons/Lesson27";
+// import Lesson27 from "lessons/Lesson27";
 
 //Consultations
 // import Counsultation20 from "./consultations/Consultation20";
@@ -26,14 +27,16 @@ import Lesson27 from "lessons/Lesson27";
 // import Homework24 from "homeworks/homework24";
 // import Homework24Alternative from "homeworks/homework24Alternative";
 // import Homework25 from "homeworks/Homework25";
+import Homework27 from "homeworks/Homework27";
 
 function App() {
   return (
     <BrowserRouter>
       <GlobalStyles />
-      <Layout>
+      <Weather />
+      {/* <Layout>
         <Routes>
-          <Route path="/" element={<Lesson27 />} />
+          <Route path="/" element={<Homework27 />} />
           <Route path="/users" element={<Users />} />
           <Route path="/about" element={<About />} />
           <Route path="/clients" element={<Clients />} />
@@ -41,7 +44,7 @@ function App() {
           <Route path="/clients/facebook" element={<Facebook />} />
           <Route path="/clients/sega" element={<Sega />} />
           <Route path="*" element="Page Not Found" />
-        </Routes>
+        </Routes> */}
         {/* Lessons */}
         {/* <Lesson20 /> */}
         {/* <Lesson21 /> */}
@@ -58,7 +61,7 @@ function App() {
         {/* <Homework24 /> */}
         {/* <Homework24Alternative /> */}
         {/* <Homework25 /> */}
-      </Layout>
+      {/* </Layout> */}
     </BrowserRouter>
   );
 }
