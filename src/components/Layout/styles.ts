@@ -27,6 +27,8 @@ export const LogoContainer = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  width: 30px;
+  height: 30px;
 `;
 
 export const NavContainer = styled.nav`
@@ -69,4 +71,9 @@ export const Footer = styled.footer`
   padding: 20px;
   background-color: ${colors.primary};
   color: ${colors.white};
+`;
+
+export const LogoImg = styled.img`
+  width: 100%;
+  height: 100%;
 `;

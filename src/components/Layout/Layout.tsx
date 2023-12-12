@@ -1,5 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 
+import {LikeIcon} from 'assets';
+
 import {
   LayoutWrapper,
   Header,
@@ -10,6 +12,7 @@ import {
   StyledNavLink,
   NavContainerCol,
   LogoContainer,
+  LogoImg
 } from "./styles";
 import { LayoutProps } from "./types";
 
@@ -21,7 +24,10 @@ function Layout({ children }: LayoutProps) {
   return (
     <LayoutWrapper>
       <Header>
-        <LogoContainer onClick={() => navigate("/")}>Logo</LogoContainer>
+        <LogoContainer onClick={() => navigate("/")}>
+          <LogoImg src={LikeIcon} />
+          {/* Logo */}
+          </LogoContainer>
         <NavContainer>
           <StyledNavLink
             style={({ isActive }) => ({ color: isActive ? "blue" : "white" })}

@@ -1,19 +1,22 @@
-import {UsersWrapper} from './styles'
-import Button from 'components/Button';
-import {useNavigate} from 'react-router-dom';
-import { react } from '@babel/types';
- 
-function Users(){
-    const navigate = useNavigate();
+import { useNavigate } from "react-router-dom";
 
-    const goToHomepage = () =>{
-        navigate("/");
-    }
+import Button from "components/Button";
 
-    return<UsersWrapper>
-        Users
-        <Button name="Go to Homepage" onClick={goToHomepage}/>
-        </UsersWrapper>
+import { UsersWrpapper } from "./styles";
+
+function Users() {
+  const navigate = useNavigate();
+
+  const goToHomePage = () => {
+    navigate("/");
+  };
+
+  return (
+    <UsersWrpapper>
+      Users
+      <Button name="Go to Home page" onClick={goToHomePage} />
+    </UsersWrpapper>
+  );
 }
 
 export default Users;

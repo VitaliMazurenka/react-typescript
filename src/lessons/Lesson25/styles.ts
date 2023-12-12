@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import {colors} from 'styles/colors'
+
+import { colors } from "styles/colors";
 
 export const Lesson25Wrapper = styled.div`
-display: flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -13,25 +14,15 @@ display: flex;
   background-color: ${colors.primary};
 `;
 
-export const Card = styled.div`
+export const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
-  gap:10px;
-  width: 100%;
-  height: 500px;
-  padding: 10px;
+  gap: 40px;
+  min-width: 470px;
+  min-height: 470px;
+  padding: 40px;
+  border-radius: 8px;
   background-color: white;
-`;
-
-export const LoginForm = styled.form`
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    min-width: 470px;
-    min-height: 470px;
-    padding: 40px;
-    border-radius:8px;
-    background-color: white;
 `;
 
 export const Text = styled.p`

@@ -6,7 +6,7 @@ function Facebook() {
   const navigate = useNavigate();
 
   const goBack = () => {
-    navigate("/clients");
+    navigate(-1);
   };
 
   return (
